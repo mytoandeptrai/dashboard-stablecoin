@@ -5,15 +5,21 @@ import LoadingSpinner from './components/shared/loading-spinner/loading-spinner.
 import { ErrorBoundary } from './components/ui/error-boundary.tsx';
 import * as I18nProvider from './integrations/i18n/root-provider';
 import * as TanStackQueryProvider from './integrations/tanstack-query/root-provider.tsx';
+import * as WagmiProvider from './integrations/wagmi/wagmi-provider.tsx';
 import reportWebVitals from './reportWebVitals.ts';
 
 import { HelmetProvider } from 'react-helmet-async';
 import { useAuthContext } from './integrations/auth/auth-provider.tsx';
 import { InfraProviders } from './integrations/infra-providers.tsx';
+import { Toaster } from '@/components/ui/sonner';
+
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
+
+// Custom css
 import './styles.css';
-import { Toaster } from '@/components/ui/sonner';
+import '@rainbow-me/rainbowkit/styles.css';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
 // Create a new router instance
 export const TanStackQueryProviderContext = TanStackQueryProvider.getContext();
@@ -48,18 +54,22 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <I18nProvider.Provider>
-        <TanStackQueryProvider.Provider {...TanStackQueryProviderContext}>
-          <HelmetProvider>
-            <InfraProviders>
-              <ErrorBoundary>
-                <Suspense fallback={<LoadingSpinner />}>
-                  <InnerApp />
-                </Suspense>
-              </ErrorBoundary>
-            </InfraProviders>
-            <Toaster richColors position='top-right' />
-          </HelmetProvider>
-        </TanStackQueryProvider.Provider>
+        <WagmiProvider.Provider>
+          <TanStackQueryProvider.Provider {...TanStackQueryProviderContext}>
+            <RainbowKitProvider>
+              <HelmetProvider>
+                <InfraProviders>
+                  <ErrorBoundary>
+                    <Suspense fallback={<LoadingSpinner />}>
+                      <InnerApp />
+                    </Suspense>
+                  </ErrorBoundary>
+                </InfraProviders>
+                <Toaster richColors position='top-right' />
+              </HelmetProvider>
+            </RainbowKitProvider>
+          </TanStackQueryProvider.Provider>
+        </WagmiProvider.Provider>
       </I18nProvider.Provider>
     </StrictMode>
   );

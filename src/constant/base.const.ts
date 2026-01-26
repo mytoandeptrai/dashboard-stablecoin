@@ -6,6 +6,8 @@ export const env = {
   ENVIRONMENT: import.meta.env.VITE_ENV || '',
   RECAPTCHA_SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || '',
   SDK_LIST: import.meta.env.VITE_SDK_LIST || '',
+  PROJECT_ID: import.meta.env.VITE_PROJECT_ID || '',
+  PROJECT_NAME: import.meta.env.VITE_PROJECT_NAME || '',
 };
 
 export const NUMBER_FORMAT_LOOK_UP = [
