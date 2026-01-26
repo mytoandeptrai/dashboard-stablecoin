@@ -1,0 +1,49 @@
+{
+  "title": "Welcome to Stablecoin Studio",
+  "description": "Please complete the onboarding process to continue.",
+  "cookies": {
+    "title": "Cookies",
+    "description": "This website uses cookies to improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "userInfo": {
+    "title": "Stablecoin Studio Web Demo",
+    "description": "Please provide your information and accept the terms & conditions below to utilize the React-based demo application of Stablecoin Studio on the Hedera testnet.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "privacyPolicy": "Privacy Policy",
+    "termsText": "By clicking Accept you agree to the Terms and Conditions",
+    "cancel": "Cancel",
+    "accept": "Accept"
+  },
+  "connectWallet": {
+    "title": "Connect Wallet",
+    "description": "Connect your wallet to continue using the application.",
+    "connectButton": "Connect Wallet",
+    "connectedAs": "Connected as",
+    "wrongNetwork": "Wrong network detected",
+    "switchNetwork": "Switch Network",
+    "cancel": "Cancel",
+    "continue": "Continue"
+  },
+  "networkSelection": {
+    "title": "Select Network",
+    "description": "Choose the network you want to use.",
+    "networkLabel": "Network",
+    "testnet": "Testnet",
+    "mainnet": "Mainnet",
+    "selectPlaceholder": "Select network",
+    "cancel": "Cancel",
+    "accept": "Accept"
+  },
+  "validation": {
+    "firstNameRequired": "First name is required",
+    "firstNameMax": "First name must be less than 50 characters",
+    "lastNameRequired": "Last name is required",
+    "lastNameMax": "Last name must be less than 50 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address"
+  }
+}

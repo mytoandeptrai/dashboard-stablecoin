@@ -29,16 +29,10 @@ i18n
       'common',
       'validation',
       'navigation',
-      'register-page',
-      'login-page',
-      'verify-email-page',
-      'verified-email-page',
       'dashboard-page',
-      'balance-page',
-      'wallet-address-page',
       'transactions-page',
-      'merchant-detail-page',
       'transaction-detail-page',
+      'getting-started-page',
     ],
 
     /** Detection settings */

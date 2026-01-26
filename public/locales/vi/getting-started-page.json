@@ -1,0 +1,49 @@
+{
+  "title": "Chào mừng đến với Stablecoin Studio",
+  "description": "Vui lòng hoàn thành quy trình đăng ký để tiếp tục.",
+  "cookies": {
+    "title": "Cookies",
+    "description": "Trang web này sử dụng cookies để cải thiện trải nghiệm của bạn.",
+    "accept": "Đồng ý",
+    "decline": "Từ chối"
+  },
+  "userInfo": {
+    "title": "Stablecoin Studio Web Demo",
+    "description": "Vui lòng cung cấp thông tin của bạn và chấp nhận các điều khoản & điều kiện bên dưới để sử dụng ứng dụng demo React của Stablecoin Studio trên Hedera testnet.",
+    "firstName": "Họ",
+    "lastName": "Tên",
+    "email": "Email",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsText": "Bằng việc nhấn Đồng ý, bạn đồng ý với các Điều khoản và Điều kiện",
+    "cancel": "Hủy",
+    "accept": "Đồng ý"
+  },
+  "connectWallet": {
+    "title": "Kết nối Ví",
+    "description": "Kết nối ví của bạn để tiếp tục sử dụng ứng dụng.",
+    "connectButton": "Kết nối Ví",
+    "connectedAs": "Đã kết nối với",
+    "wrongNetwork": "Phát hiện mạng không đúng",
+    "switchNetwork": "Chuyển mạng",
+    "cancel": "Hủy",
+    "continue": "Tiếp tục"
+  },
+  "networkSelection": {
+    "title": "Chọn Mạng",
+    "description": "Chọn mạng bạn muốn sử dụng.",
+    "networkLabel": "Mạng",
+    "testnet": "Testnet",
+    "mainnet": "Mainnet",
+    "selectPlaceholder": "Chọn mạng",
+    "cancel": "Hủy",
+    "accept": "Đồng ý"
+  },
+  "validation": {
+    "firstNameRequired": "Họ là bắt buộc",
+    "firstNameMax": "Họ phải ít hơn 50 ký tự",
+    "lastNameRequired": "Tên là bắt buộc",
+    "lastNameMax": "Tên phải ít hơn 50 ký tự",
+    "emailRequired": "Email là bắt buộc",
+    "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ"
+  }
+}

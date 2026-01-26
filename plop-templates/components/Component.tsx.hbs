@@ -1,9 +1,11 @@
+import type { FCC } from '@/types';
+
 type {{pascalCase name}}Props = {
   //
 };
 
-const {{pascalCase name}} = ({}: {{pascalCase name}}Props) => {
-  return (<>{{pascalCase name}}</>);
+const {{pascalCase name}}: FCC<{{pascalCase name}}Props> = ({children}) => {
+  return <>{{pascalCase name}}</>;
 };
 
 export default {{pascalCase name}};

@@ -194,7 +194,9 @@
     "signout": "Đăng xuất",
     "profile": "Hồ sơ",
     "go-back": "Quay lại",
-    "reload": "Tải lại trang"
+    "reload": "Tải lại trang",
+    "connect-wallet": "Kết nối ví",
+    "wrong-network": "Mạng không đúng"
   },
   "layouts": {
     "auth": {

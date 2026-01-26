@@ -207,7 +207,9 @@
     "signout": "Sign Out",
     "profile": "Profile",
     "go-back": "Go Back",
-    "reload": "Reload"
+    "reload": "Reload",
+    "connect-wallet": "Connect Wallet",
+    "wrong-network": "Wrong network"
   },
   "layouts": {
     "auth": {

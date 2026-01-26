@@ -5,11 +5,22 @@ interface ModalProps {
   renderTitle?: React.ReactNode;
   description: string;
   isOpen: boolean;
-  onClose: () => void;
   children?: React.ReactNode;
+  showCloseButton?: boolean;
+  closeOnInteractOutside?: boolean;
+  onClose: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({ title, description, renderTitle, isOpen, onClose, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  title,
+  description,
+  renderTitle,
+  isOpen,
+  onClose,
+  children,
+  showCloseButton = true,
+  closeOnInteractOutside = true,
+}: ModalProps) => {
   const onChange = (open: boolean) => {
     if (!open) {
       onClose?.();
@@ -18,7 +29,16 @@ export const Modal: React.FC<ModalProps> = ({ title, description, renderTitle, i
 
   return (
     <Dialog open={isOpen} onOpenChange={onChange}>
-      <DialogContent>
+      <DialogContent
+        {...(closeOnInteractOutside
+          ? {
+              onInteractOutside: (e) => {
+                e.preventDefault();
+              },
+            }
+          : {})}
+        showCloseButton={showCloseButton}
+      >
         <DialogHeader>
           <DialogTitle>{renderTitle ?? title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>

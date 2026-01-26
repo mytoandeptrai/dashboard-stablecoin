@@ -1,11 +1,11 @@
 {
-    "name": "PWC Merchant Platform",
-    "short_name": "PWC Merchant",
-    "description": "Merchant management platform for PWC marketplace",
+    "name": "Var StableCoin Dashboard",
+    "short_name": "Var StableCoin Dashboard",
+    "description": "Var StableCoin Dashboard",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#675dff",
+    "theme_color": "#1378f3",
     "icons": [
       {
         "src": "/icons/android-chrome-192x192.png",
