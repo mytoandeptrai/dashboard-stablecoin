@@ -1,4 +1,4 @@
-import { useTranslation } from '@/integrations/i18n';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -7,12 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from '@tanstack/react-router';
-import { useOnboardingStore, type NetworkType } from '@/stores/use-onboarding-store';
-import { useEffect, useState } from 'react';
-import { useConnection } from 'wagmi';
-import type { Option } from '@/types';
+import { useTranslation } from '@/integrations/i18n';
 
 interface SelectNetworkDialogProps {
   isOpen: boolean;
@@ -20,51 +15,8 @@ interface SelectNetworkDialogProps {
   onDecline: () => void;
 }
 
-const options: Option<NetworkType>[] = [
-  {
-    label: 'Testnet',
-    value: 'testnet',
-  },
-  {
-    label: 'Mainnet',
-    value: 'mainnet',
-  },
-];
-
-const useSelectNetworkDialog = () => {
-  const { t } = useTranslation('common');
-
-  const navigate = useNavigate();
-  const setSelectedNetwork = useOnboardingStore((state) => state.setSelectedNetwork);
-  const selectedNetwork = useOnboardingStore((state) => state.selectedNetwork);
-
-  const { isConnected } = useConnection();
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentOption, setCurrentOption] = useState(options[0].value);
-
-  useEffect(() => {
-    if (isConnected && !selectedNetwork) {
-      setIsOpen(true);
-    }
-  }, [isConnected, selectedNetwork]);
-
-  const onAccept = () => {
-    setSelectedNetwork(currentOption);
-    setIsOpen(false);
-  };
-
-  return {
-    isOpen,
-    onAccept,
-  };
-};
-
 export const SelectNetworkDialog = ({ isOpen, onAccept, onDecline }: SelectNetworkDialogProps) => {
   const { t } = useTranslation('common');
-  const navigate = useNavigate();
-  const selectedNetwork = useOnboardingStore((state) => state.selectedNetwork);
-  const setSelectedNetwork = useOnboardingStore((state) => state.setSelectedNetwork);
 
   return (
     <Dialog open={isOpen}>
