@@ -9,9 +9,11 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
+import { ROUTES } from '@/constant';
 import { useDebounce } from '@/hooks/use-debounce';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
+import { useNavigate, useParams } from '@tanstack/react-router';
 import { SearchIcon } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -48,8 +50,12 @@ const searchTokens = (tokens: TokenItem[], query: string): Promise<TokenItem[]> 
   });
 };
 
-export default function SearchTokenInput({ onSelectToken, className }: SearchTokenInputProps) {
+export default function SearchTokenInput({ className }: SearchTokenInputProps) {
   const { t } = useTranslation('common');
+  const navigate = useNavigate();
+  // Use generic useParams - stablecoinId will be undefined when not on $stablecoinId route
+  const { stablecoinId } = useParams({ strict: false }) as { stablecoinId?: string };
+
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [tokens, setTokens] = useState<TokenItem[]>([]);
@@ -103,8 +109,13 @@ export default function SearchTokenInput({ onSelectToken, className }: SearchTok
 
   // Handle token selection
   const handleSelectToken = (token: TokenItem) => {
-    console.log('Selected token:', token);
-    onSelectToken?.(token);
+    if (!token.symbol) return;
+    navigate({
+      to: ROUTES.OPERATIONS,
+      params: { stablecoinId: token.symbol as string },
+      search: { action: undefined },
+      replace: true,
+    });
     setSearchValue('');
     setOpen(false);
   };
@@ -120,7 +131,7 @@ export default function SearchTokenInput({ onSelectToken, className }: SearchTok
         onClick={() => setOpen(true)}
       >
         <SearchIcon className='mr-2 size-4' />
-        {t('labels.choose-stable-coin')}
+        {stablecoinId ? <span className='text-muted-foreground'>{stablecoinId}</span> : t('labels.choose-stable-coin')}
       </Button>
 
       <CommandDialog open={open} onOpenChange={setOpen} title={t('labels.choose-stable-coin')}>

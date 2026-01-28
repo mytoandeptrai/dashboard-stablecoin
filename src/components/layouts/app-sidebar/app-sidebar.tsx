@@ -27,7 +27,7 @@ import { UserAvatarProfile } from '@/components/ui/user-avatar-profile';
 import { ROUTES } from '@/constant';
 import { useAuthContext } from '@/integrations/auth/auth-provider';
 import { useTranslation } from '@/integrations/i18n';
-import { useLocation } from '@tanstack/react-router';
+import { useLocation, useParams } from '@tanstack/react-router';
 import { ChevronRightIcon, ChevronsDownIcon, LogOutIcon, UserCircle2Icon } from 'lucide-react';
 import { navItems } from './app-sidebar.config';
 import { Logo } from '@/components/ui/logo';
@@ -38,6 +38,7 @@ const AppSidebar = () => {
   const pathname = location.pathname;
   const { t } = useTranslation();
   const { user, onSignout } = useAuthContext();
+  const { stablecoinId } = useParams({ strict: false }) as { stablecoinId?: string };
 
   const filteredNavItems = useFilteredNavItems(navItems(t));
 
@@ -47,7 +48,7 @@ const AppSidebar = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size='lg' asChild>
-              <CustomLink to={ROUTES.DASHBOARD} className='flex items-center justify-center'>
+              <CustomLink to={ROUTES.NOT_SELECTED} className='flex items-center justify-center'>
                 <Logo />
               </CustomLink>
             </SidebarMenuButton>
@@ -73,12 +74,18 @@ const AppSidebar = () => {
                       <SidebarMenuSub>
                         {item.items?.map((subItem) => (
                           <SidebarMenuSubItem key={subItem.title}>
-                            <SidebarMenuSubButton asChild isActive={pathname === subItem.url}>
+                            <SidebarMenuSubButton asChild isActive={stablecoinId ? pathname === subItem.url : false}>
                               <CustomLink
-                                to={subItem.url}
-                                activeProps={{
-                                  className: 'text-primary! font-bold!',
-                                }}
+                                to={stablecoinId ? subItem.url : ROUTES.NOT_SELECTED}
+                                params={{ stablecoinId }}
+                                search={{ action: undefined }}
+                                activeProps={
+                                  stablecoinId
+                                    ? {
+                                        className: 'text-primary! font-bold!',
+                                      }
+                                    : undefined
+                                }
                               >
                                 <span>{subItem.title}</span>
                               </CustomLink>
@@ -91,12 +98,18 @@ const AppSidebar = () => {
                 </Collapsible>
               ) : (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title} isActive={pathname === item.url}>
+                  <SidebarMenuButton asChild tooltip={item.title} isActive={stablecoinId ? pathname === item.url : false}>
                     <CustomLink
-                      to={item.url}
-                      activeProps={{
-                        className: 'text-primary! font-bold!',
-                      }}
+                      to={stablecoinId ? item.url : ROUTES.NOT_SELECTED}
+                      params={{ stablecoinId }}
+                      search={{ action: undefined }}
+                      activeProps={
+                        stablecoinId
+                          ? {
+                              className: 'text-primary! font-bold!',
+                            }
+                          : undefined
+                      }
                     >
                       {Icon && <Icon />}
                       <span>{item.title}</span>

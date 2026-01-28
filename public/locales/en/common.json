@@ -182,6 +182,7 @@
     "system": "System",
     "no-options": "No options",
     "merchants": "Merchants",
+    "operations": "Operations",
     "search-kbar": "Search...",
     "search-token": "Search token...",
     "choose-stable-coin": "Choose stable coin...",
@@ -189,7 +190,8 @@
     "no-tokens-found": "No tokens found",
     "avatar-uploaded": "Avatar uploaded",
     "upload-avatar": "Upload avatar",
-    "png-jpg-up-to": "PNG, JPG up to {{size}}"
+    "png-jpg-up-to": "PNG, JPG up to {{size}}",
+    "select-network": "Select network..."    
   },
   "buttons": {
     "continue": "Continue",
@@ -256,6 +258,12 @@
         "MSG-1.5": "Code cannot contain special characters.",
         "MSG-1.3": "Code must be 6 digits."
       }
+    },
+    "select-network": {
+      "title": "Select Network",
+      "description": "Choose the network you want to use.",
+      "cancel": "Cancel",
+      "accept": "Accept"
     }
   },
   "data-table": {

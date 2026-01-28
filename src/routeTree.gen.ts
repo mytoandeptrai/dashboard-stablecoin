@@ -19,7 +19,6 @@ import { Route as DemoFormRouteImport } from './routes/demo/form'
 import { Route as privateDashboardRouteImport } from './routes/(private)/dashboard'
 import { Route as authGettingStartedRouteImport } from './routes/(auth)/getting-started'
 import { Route as privateTransactionsIndexRouteImport } from './routes/(private)/transactions/index'
-import { Route as privateStableCoinIndexRouteImport } from './routes/(private)/stable-coin/index'
 import { Route as privateTransactionsTransactionIdRouteImport } from './routes/(private)/transactions/$transactionId'
 import { Route as privateStableCoinStablecoinIdLayoutRouteImport } from './routes/(private)/stable-coin/$stablecoinId/layout'
 import { Route as privateStableCoinNotSelectedIndexRouteImport } from './routes/(private)/stable-coin/not-selected/index'
@@ -75,11 +74,6 @@ const privateTransactionsIndexRoute =
     path: '/transactions/',
     getParentRoute: () => privateLayoutRoute,
   } as any)
-const privateStableCoinIndexRoute = privateStableCoinIndexRouteImport.update({
-  id: '/stable-coin/',
-  path: '/stable-coin/',
-  getParentRoute: () => privateLayoutRoute,
-} as any)
 const privateTransactionsTransactionIdRoute =
   privateTransactionsTransactionIdRouteImport.update({
     id: '/transactions/$transactionId',
@@ -121,7 +115,6 @@ export interface FileRoutesByFullPath {
   '/': typeof privateIndexRoute
   '/stable-coin/$stablecoinId': typeof privateStableCoinStablecoinIdLayoutRouteWithChildren
   '/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
-  '/stable-coin/': typeof privateStableCoinIndexRoute
   '/transactions/': typeof privateTransactionsIndexRoute
   '/stable-coin/create-coin/': typeof privateStableCoinCreateCoinIndexRoute
   '/stable-coin/not-selected/': typeof privateStableCoinNotSelectedIndexRoute
@@ -137,7 +130,6 @@ export interface FileRoutesByTo {
   '/': typeof privateIndexRoute
   '/stable-coin/$stablecoinId': typeof privateStableCoinStablecoinIdLayoutRouteWithChildren
   '/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
-  '/stable-coin': typeof privateStableCoinIndexRoute
   '/transactions': typeof privateTransactionsIndexRoute
   '/stable-coin/create-coin': typeof privateStableCoinCreateCoinIndexRoute
   '/stable-coin/not-selected': typeof privateStableCoinNotSelectedIndexRoute
@@ -156,7 +148,6 @@ export interface FileRoutesById {
   '/(private)/': typeof privateIndexRoute
   '/(private)/stable-coin/$stablecoinId': typeof privateStableCoinStablecoinIdLayoutRouteWithChildren
   '/(private)/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
-  '/(private)/stable-coin/': typeof privateStableCoinIndexRoute
   '/(private)/transactions/': typeof privateTransactionsIndexRoute
   '/(private)/stable-coin/create-coin/': typeof privateStableCoinCreateCoinIndexRoute
   '/(private)/stable-coin/not-selected/': typeof privateStableCoinNotSelectedIndexRoute
@@ -174,7 +165,6 @@ export interface FileRouteTypes {
     | '/'
     | '/stable-coin/$stablecoinId'
     | '/transactions/$transactionId'
-    | '/stable-coin/'
     | '/transactions/'
     | '/stable-coin/create-coin/'
     | '/stable-coin/not-selected/'
@@ -190,7 +180,6 @@ export interface FileRouteTypes {
     | '/'
     | '/stable-coin/$stablecoinId'
     | '/transactions/$transactionId'
-    | '/stable-coin'
     | '/transactions'
     | '/stable-coin/create-coin'
     | '/stable-coin/not-selected'
@@ -208,7 +197,6 @@ export interface FileRouteTypes {
     | '/(private)/'
     | '/(private)/stable-coin/$stablecoinId'
     | '/(private)/transactions/$transactionId'
-    | '/(private)/stable-coin/'
     | '/(private)/transactions/'
     | '/(private)/stable-coin/create-coin/'
     | '/(private)/stable-coin/not-selected/'
@@ -296,13 +284,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof privateTransactionsIndexRouteImport
       parentRoute: typeof privateLayoutRoute
     }
-    '/(private)/stable-coin/': {
-      id: '/(private)/stable-coin/'
-      path: '/stable-coin'
-      fullPath: '/stable-coin/'
-      preLoaderRoute: typeof privateStableCoinIndexRouteImport
-      parentRoute: typeof privateLayoutRoute
-    }
     '/(private)/transactions/$transactionId': {
       id: '/(private)/transactions/$transactionId'
       path: '/transactions/$transactionId'
@@ -373,7 +354,6 @@ interface privateLayoutRouteChildren {
   privateIndexRoute: typeof privateIndexRoute
   privateStableCoinStablecoinIdLayoutRoute: typeof privateStableCoinStablecoinIdLayoutRouteWithChildren
   privateTransactionsTransactionIdRoute: typeof privateTransactionsTransactionIdRoute
-  privateStableCoinIndexRoute: typeof privateStableCoinIndexRoute
   privateTransactionsIndexRoute: typeof privateTransactionsIndexRoute
   privateStableCoinCreateCoinIndexRoute: typeof privateStableCoinCreateCoinIndexRoute
   privateStableCoinNotSelectedIndexRoute: typeof privateStableCoinNotSelectedIndexRoute
@@ -385,7 +365,6 @@ const privateLayoutRouteChildren: privateLayoutRouteChildren = {
   privateStableCoinStablecoinIdLayoutRoute:
     privateStableCoinStablecoinIdLayoutRouteWithChildren,
   privateTransactionsTransactionIdRoute: privateTransactionsTransactionIdRoute,
-  privateStableCoinIndexRoute: privateStableCoinIndexRoute,
   privateTransactionsIndexRoute: privateTransactionsIndexRoute,
   privateStableCoinCreateCoinIndexRoute: privateStableCoinCreateCoinIndexRoute,
   privateStableCoinNotSelectedIndexRoute:
