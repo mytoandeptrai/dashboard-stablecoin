@@ -23,4 +23,5 @@ export const ROUTES = {
   GETTING_STARTED: '/getting-started',
   NOT_SELECTED: '/stable-coin/not-selected',
   CREATE_COIN: '/stable-coin/create-coin',
+  OPERATIONS: '/stable-coin/$stablecoinId/operations',
 } as const;
