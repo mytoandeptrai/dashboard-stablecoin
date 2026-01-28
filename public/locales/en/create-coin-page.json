@@ -1,0 +1,106 @@
+{
+  "title": "Create new stablecoin",
+  "description": "Create a new stablecoin with the following details",
+  "steps": {
+    "1": "Stablecoin Details",
+    "2": "Supply & Metadata",
+    "3": "Configure Permissions",
+    "4": "Proof-Of-Reserve",
+    "5": "Review & Deploy"
+  },
+  "options": {
+    "supply-type": {
+      "infinite": "Infinite",
+      "finite": "Finite"
+    },
+    "permission": {
+      "var-meta-smc": "Var-Meta SMC",
+      "current-user-key": "Current User Key",
+      "none": "None",
+      "other-key": "Other Key"
+    },
+    "role": {
+      "current-user-account": "Current user account",
+      "other-account": "Other account",
+      "none": "None"
+    },
+    "fee-schedule": {
+      "current-user-key": "Current User Key",
+      "other-key": "Other Key"
+    }
+  },
+  "step-details": {
+    "step-1": {
+      "name": "Stablecoin Name",
+      "symbol": "Stablecoin Symbol",
+      "config-id": "Stablecoin Config ID",
+      "config-version": "Stablecoin Config Version"
+    },
+    "step-2": {
+      "initial-supply": "Stablecoin Initial Supply",
+      "supply-type": "Stablecoin Supply Type",
+      "decimals": "Stablecoin Decimals",
+      "metadata": "Stablecoin Metadata"
+    },
+    "step-3": {
+      "title": "Configure Permissions",
+      "assign-default-values": "Assign default values",
+      "wipe": "Wipe",
+      "freeze": "Freeze",
+      "pause": "Pause",
+      "kyc-enabled": "Enable KYC accounts flags?",
+      "kyc": "KYC",
+      "grant-kyc-flag": "Grant KYC flag to the token creator",
+      "custom-fees": "Do you want to add custom fees?",
+      "fee-schedule": "Fee Schedule",
+      "other-key-placeholder": "Enter other key address",
+      "roles-assignment": "Roles Assignment",
+      "cash-in": "Cash in",
+      "unlimited": "Unlimited?",
+      "burn": "Burn",
+      "wipe-role": "Wipe",
+      "rescue": "Rescue",
+      "pause-role": "Pause",
+      "freeze-role": "Freeze",
+      "delete": "Delete",
+      "other-account-placeholder": "Enter other account address"
+    },
+    "step-4": {
+      "title": "Proof-of-Reserve",
+      "collateralized": "Will your stablecoin be collateralized by another on-chain asset?",
+      "existing-data-feed": "Do you have an existing data feed? You will need the contract address.",
+      "proof-of-reserve-supply": "Proof-of-reserve supply",
+      "data-feed-address": "Address for data feed contract"
+    },
+    "step-5": {
+      "title": "Review stablecoin details prior to creation",
+      "stablecoin-details": "Stablecoin Details",
+      "hedera-token-manager-impl": "HederaTokenManager impl.",
+      "stablecoin-name": "Stablecoin Name",
+      "stablecoin-symbol": "Stablecoin Symbol",
+      "supply-metadata": "Supply & Metadata",
+      "initial-supply": "Initial supply",
+      "supply-type": "Supply type",
+      "max-supply": "Max supply",
+      "decimals": "Decimals",
+      "metadata": "Metadata",
+      "permissions": "Permissions",
+      "wipe": "Wipe",
+      "freeze": "Freeze",
+      "pause": "Pause",
+      "kyc": "KYC",
+      "custom-fees": "Custom Fees",
+      "roles-assignment": "Roles Assignment",
+      "cash-in": "Cash in",
+      "unlimited": "Unlimited",
+      "burn": "Burn",
+      "rescue": "Rescue",
+      "delete": "Delete",
+      "proof-of-reserve": "Proof-of-Reserve",
+      "collateralized": "Collateralized",
+      "existing-data-feed": "Existing Data Feed",
+      "proof-of-reserve-supply": "Proof-of-reserve supply",
+      "data-feed-address": "Data Feed Address"
+    }
+  }
+}

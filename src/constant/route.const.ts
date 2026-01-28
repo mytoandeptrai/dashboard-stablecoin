@@ -20,5 +20,7 @@ export const ROUTES = {
   MERCHANTS: '/merchants',
   MERCHANT_DETAILS: '/merchants/$merchantId',
   TRANSACTION_DETAIL: '/transactions/$transactionId',
-  GETTING_STARTED: "/getting-started"
+  GETTING_STARTED: '/getting-started',
+  NOT_SELECTED: '/stable-coin/not-selected',
+  CREATE_COIN: '/stable-coin/create-coin',
 } as const;

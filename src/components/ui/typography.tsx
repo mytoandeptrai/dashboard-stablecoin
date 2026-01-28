@@ -62,7 +62,7 @@ export function Paragraph({ children, className, color = 'default', size = 'defa
       color: {
         default: 'text-foreground',
         light: 'text-gray-400',
-        dark: 'text-primary',
+        dark: 'text-gray-900',
         'gray-700': 'text-gray-700',
         'gray-500': 'text-gray-500',
         'gray-900': 'text-gray-900',
@@ -74,6 +74,10 @@ export function Paragraph({ children, className, color = 'default', size = 'defa
         md: 'text-base',
         lg: 'text-lg',
       },
+    },
+    defaultVariants: {
+      color: 'default',
+      size: 'default',
     },
   });
   const ParagraphComponent = as as React.ElementType;

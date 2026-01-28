@@ -349,7 +349,6 @@ export function formatDuration(ms: number) {
   return parts.join(' ');
 }
 
-/** Validate Ethereum address format using ethers library */
 export const isValidEthereumAddress = (address: string): boolean => {
   return isAddress(address);
 };

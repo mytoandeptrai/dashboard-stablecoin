@@ -1,14 +1,19 @@
 import { Button } from '@/components/ui/button';
-import SearchKbarInput from '@/components/ui/kbar/search-kbar-input';
+import SearchTokenInput from '@/components/ui/search-token-input';
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
+import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useNavigate } from '@tanstack/react-router';
+import { PlusIcon } from 'lucide-react';
 
 export default function AppHeader() {
   const { t } = useTranslation('common');
   const { open, isMobile } = useSidebar();
+  const navigate = useNavigate();
+
   return (
     <header
       className={cn(
@@ -22,13 +27,14 @@ export default function AppHeader() {
       <div className='flex items-center gap-2 px-4'>
         <SidebarTrigger className='-ml-1' />
         <Separator orientation='vertical' className='mr-2 data-[orientation=vertical]:h-4' />
-        <div className='hidden md:flex'>
-          <SearchKbarInput />
+        <div className='hidden md:flex md:w-64 lg:w-80'>
+          <SearchTokenInput />
+          <Button size='icon' className='ml-2' onClick={() => navigate({ to: ROUTES.CREATE_COIN })} type='button'>
+            <PlusIcon className='size-4' />
+          </Button>
         </div>
       </div>
       <div className='flex items-center gap-3 pr-4 text-sm!'>
-        {/* <ConnectButton label={text} accountStatus='address' chainStatus='icon' showBalance={false} /> */}
-
         <ConnectButton.Custom>
           {({ account, chain, openAccountModal, openChainModal, openConnectModal, authenticationStatus, mounted }) => {
             // Note: If your app doesn't use authentication, you

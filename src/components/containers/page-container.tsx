@@ -7,10 +7,12 @@ import { Button } from '../ui/button';
 import { AlertTriangle } from 'lucide-react';
 import { useNavigate, useRouter } from '@tanstack/react-router';
 import { ROUTES } from '@/constant';
+import { cn } from '@/lib/utils';
 
 type PageContainerProps = {
   scrollable?: boolean;
   isLoading?: boolean;
+  fullHeight?: boolean;
   access?: boolean;
   accessFallback?: React.ReactNode;
   pageTitle?: string;
@@ -39,6 +41,7 @@ export const PageContainer: FCC<PageContainerProps> = ({
   children,
   scrollable = true,
   isLoading = false,
+  fullHeight = false,
   access = true,
   accessFallback,
   pageTitle,
@@ -99,7 +102,11 @@ export const PageContainer: FCC<PageContainerProps> = ({
 
   return scrollable ? (
     <div className='mt-16 h-[calc(100dvh-64px)]'>
-      <div className='flex flex-1 flex-col p-4 pt-0'>
+      <div
+        className={cn('flex flex-1 flex-col p-4 pt-0', {
+          'h-full': fullHeight,
+        })}
+      >
         <div className='mb-4 flex items-start justify-between'>
           <div>
             <Show when={!!pageTitle}>

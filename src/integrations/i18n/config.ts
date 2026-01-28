@@ -33,6 +33,7 @@ i18n
       'transactions-page',
       'transaction-detail-page',
       'getting-started-page',
+      'create-coin-page',
     ],
 
     /** Detection settings */

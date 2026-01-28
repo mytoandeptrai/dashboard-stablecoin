@@ -14,7 +14,7 @@ export const useGettingStartedContainer = () => {
   // If so, redirect to dashboard (wallet selection will happen there)
   useEffect(() => {
     if (isOnboardingComplete()) {
-      navigate({ to: ROUTES.DASHBOARD });
+      navigate({ to: ROUTES.NOT_SELECTED });
     }
   }, [isOnboardingComplete, navigate, termsAccepted]);
 

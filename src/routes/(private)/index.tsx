@@ -4,7 +4,7 @@ import { createFileRoute, redirect } from '@tanstack/react-router';
 export const Route = createFileRoute('/(private)/')({
   beforeLoad: ({ context }) => {
     const auth = context.auth;
-    const to = auth.isAuthenticated ? ROUTES.DASHBOARD : ROUTES.GETTING_STARTED;
+    const to = auth.isAuthenticated ? ROUTES.NOT_SELECTED : ROUTES.GETTING_STARTED;
     throw redirect({
       to,
     });

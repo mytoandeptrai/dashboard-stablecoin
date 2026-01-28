@@ -19,7 +19,10 @@ import { Route as DemoFormRouteImport } from './routes/demo/form'
 import { Route as privateDashboardRouteImport } from './routes/(private)/dashboard'
 import { Route as authGettingStartedRouteImport } from './routes/(auth)/getting-started'
 import { Route as privateTransactionsIndexRouteImport } from './routes/(private)/transactions/index'
+import { Route as privateStableCoinIndexRouteImport } from './routes/(private)/stable-coin/index'
 import { Route as privateTransactionsTransactionIdRouteImport } from './routes/(private)/transactions/$transactionId'
+import { Route as privateStableCoinNotSelectedIndexRouteImport } from './routes/(private)/stable-coin/not-selected/index'
+import { Route as privateStableCoinCreateCoinIndexRouteImport } from './routes/(private)/stable-coin/create-coin/index'
 
 const R404Route = R404RouteImport.update({
   id: '/404',
@@ -70,10 +73,27 @@ const privateTransactionsIndexRoute =
     path: '/transactions/',
     getParentRoute: () => privateLayoutRoute,
   } as any)
+const privateStableCoinIndexRoute = privateStableCoinIndexRouteImport.update({
+  id: '/stable-coin/',
+  path: '/stable-coin/',
+  getParentRoute: () => privateLayoutRoute,
+} as any)
 const privateTransactionsTransactionIdRoute =
   privateTransactionsTransactionIdRouteImport.update({
     id: '/transactions/$transactionId',
     path: '/transactions/$transactionId',
+    getParentRoute: () => privateLayoutRoute,
+  } as any)
+const privateStableCoinNotSelectedIndexRoute =
+  privateStableCoinNotSelectedIndexRouteImport.update({
+    id: '/stable-coin/not-selected/',
+    path: '/stable-coin/not-selected/',
+    getParentRoute: () => privateLayoutRoute,
+  } as any)
+const privateStableCoinCreateCoinIndexRoute =
+  privateStableCoinCreateCoinIndexRouteImport.update({
+    id: '/stable-coin/create-coin/',
+    path: '/stable-coin/create-coin/',
     getParentRoute: () => privateLayoutRoute,
   } as any)
 
@@ -86,7 +106,10 @@ export interface FileRoutesByFullPath {
   '/demo/storybook': typeof DemoStorybookRoute
   '/': typeof privateIndexRoute
   '/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
+  '/stable-coin/': typeof privateStableCoinIndexRoute
   '/transactions/': typeof privateTransactionsIndexRoute
+  '/stable-coin/create-coin/': typeof privateStableCoinCreateCoinIndexRoute
+  '/stable-coin/not-selected/': typeof privateStableCoinNotSelectedIndexRoute
 }
 export interface FileRoutesByTo {
   '/$': typeof SplatRoute
@@ -97,7 +120,10 @@ export interface FileRoutesByTo {
   '/demo/storybook': typeof DemoStorybookRoute
   '/': typeof privateIndexRoute
   '/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
+  '/stable-coin': typeof privateStableCoinIndexRoute
   '/transactions': typeof privateTransactionsIndexRoute
+  '/stable-coin/create-coin': typeof privateStableCoinCreateCoinIndexRoute
+  '/stable-coin/not-selected': typeof privateStableCoinNotSelectedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -111,7 +137,10 @@ export interface FileRoutesById {
   '/demo/storybook': typeof DemoStorybookRoute
   '/(private)/': typeof privateIndexRoute
   '/(private)/transactions/$transactionId': typeof privateTransactionsTransactionIdRoute
+  '/(private)/stable-coin/': typeof privateStableCoinIndexRoute
   '/(private)/transactions/': typeof privateTransactionsIndexRoute
+  '/(private)/stable-coin/create-coin/': typeof privateStableCoinCreateCoinIndexRoute
+  '/(private)/stable-coin/not-selected/': typeof privateStableCoinNotSelectedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -124,7 +153,10 @@ export interface FileRouteTypes {
     | '/demo/storybook'
     | '/'
     | '/transactions/$transactionId'
+    | '/stable-coin/'
     | '/transactions/'
+    | '/stable-coin/create-coin/'
+    | '/stable-coin/not-selected/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/$'
@@ -135,7 +167,10 @@ export interface FileRouteTypes {
     | '/demo/storybook'
     | '/'
     | '/transactions/$transactionId'
+    | '/stable-coin'
     | '/transactions'
+    | '/stable-coin/create-coin'
+    | '/stable-coin/not-selected'
   id:
     | '__root__'
     | '/(auth)'
@@ -148,7 +183,10 @@ export interface FileRouteTypes {
     | '/demo/storybook'
     | '/(private)/'
     | '/(private)/transactions/$transactionId'
+    | '/(private)/stable-coin/'
     | '/(private)/transactions/'
+    | '/(private)/stable-coin/create-coin/'
+    | '/(private)/stable-coin/not-selected/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -232,11 +270,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof privateTransactionsIndexRouteImport
       parentRoute: typeof privateLayoutRoute
     }
+    '/(private)/stable-coin/': {
+      id: '/(private)/stable-coin/'
+      path: '/stable-coin'
+      fullPath: '/stable-coin/'
+      preLoaderRoute: typeof privateStableCoinIndexRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
     '/(private)/transactions/$transactionId': {
       id: '/(private)/transactions/$transactionId'
       path: '/transactions/$transactionId'
       fullPath: '/transactions/$transactionId'
       preLoaderRoute: typeof privateTransactionsTransactionIdRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
+    '/(private)/stable-coin/not-selected/': {
+      id: '/(private)/stable-coin/not-selected/'
+      path: '/stable-coin/not-selected'
+      fullPath: '/stable-coin/not-selected/'
+      preLoaderRoute: typeof privateStableCoinNotSelectedIndexRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
+    '/(private)/stable-coin/create-coin/': {
+      id: '/(private)/stable-coin/create-coin/'
+      path: '/stable-coin/create-coin'
+      fullPath: '/stable-coin/create-coin/'
+      preLoaderRoute: typeof privateStableCoinCreateCoinIndexRouteImport
       parentRoute: typeof privateLayoutRoute
     }
   }
@@ -258,14 +317,21 @@ interface privateLayoutRouteChildren {
   privateDashboardRoute: typeof privateDashboardRoute
   privateIndexRoute: typeof privateIndexRoute
   privateTransactionsTransactionIdRoute: typeof privateTransactionsTransactionIdRoute
+  privateStableCoinIndexRoute: typeof privateStableCoinIndexRoute
   privateTransactionsIndexRoute: typeof privateTransactionsIndexRoute
+  privateStableCoinCreateCoinIndexRoute: typeof privateStableCoinCreateCoinIndexRoute
+  privateStableCoinNotSelectedIndexRoute: typeof privateStableCoinNotSelectedIndexRoute
 }
 
 const privateLayoutRouteChildren: privateLayoutRouteChildren = {
   privateDashboardRoute: privateDashboardRoute,
   privateIndexRoute: privateIndexRoute,
   privateTransactionsTransactionIdRoute: privateTransactionsTransactionIdRoute,
+  privateStableCoinIndexRoute: privateStableCoinIndexRoute,
   privateTransactionsIndexRoute: privateTransactionsIndexRoute,
+  privateStableCoinCreateCoinIndexRoute: privateStableCoinCreateCoinIndexRoute,
+  privateStableCoinNotSelectedIndexRoute:
+    privateStableCoinNotSelectedIndexRoute,
 }
 
 const privateLayoutRouteWithChildren = privateLayoutRoute._addFileChildren(

@@ -263,6 +263,7 @@ function StepperTrigger({
 
   return (
     <button
+      type='button'
       ref={btnRef}
       role='tab'
       id={id}

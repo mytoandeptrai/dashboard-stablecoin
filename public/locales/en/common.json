@@ -183,6 +183,10 @@
     "no-options": "No options",
     "merchants": "Merchants",
     "search-kbar": "Search...",
+    "search-token": "Search token...",
+    "choose-stable-coin": "Choose stable coin...",
+    "no-stable-coin-found": "No stable coin found",
+    "no-tokens-found": "No tokens found",
     "avatar-uploaded": "Avatar uploaded",
     "upload-avatar": "Upload avatar",
     "png-jpg-up-to": "PNG, JPG up to {{size}}"
@@ -209,7 +213,8 @@
     "go-back": "Go Back",
     "reload": "Reload",
     "connect-wallet": "Connect Wallet",
-    "wrong-network": "Wrong network"
+    "wrong-network": "Wrong network",
+    "deploy": "Deploy"
   },
   "layouts": {
     "auth": {
