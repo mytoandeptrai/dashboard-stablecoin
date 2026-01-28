@@ -1,14 +1,4 @@
-import type { TFunction } from 'i18next';
 import z from 'zod';
-
-// Helper to coerce number with empty string handling
-const coerceNumber = (defaultValue = 0) =>
-  z.preprocess((val) => {
-    if (val === '' || val === null || val === undefined) {
-      return defaultValue;
-    }
-    return val;
-  }, z.coerce.number());
 
 // Permission options for Step 3
 export const PERMISSION_OPTIONS = {
@@ -31,7 +21,7 @@ export const FEE_SCHEDULE_OPTIONS = {
   OTHER_KEY: 'other-key',
 } as const;
 
-const stablecoinFormSchema = (t: TFunction) => {
+const stablecoinFormSchema = () => {
   return z
     .object({
       // Step 1: Stablecoin Details

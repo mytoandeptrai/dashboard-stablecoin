@@ -51,7 +51,7 @@ export const useCreateCoinContainer = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const form = useForm<StablecoinFormData>({
-    resolver: zodResolver(stablecoinFormSchema(t)),
+    resolver: zodResolver(stablecoinFormSchema()),
     defaultValues: defaultFormValues,
     mode: 'onChange',
   });
